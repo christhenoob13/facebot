@@ -5,6 +5,7 @@ import json
 from aiofbchat import Client
 from aiofbchat._events import Connect, Disconnect
 from aiofbchat._events._delta_class import MessageEvent
+from handler.handleMessage import messageHandler
 
 def get_cookie():
   appstate = json.load(open('greeg.json', 'r'))
@@ -21,17 +22,13 @@ config = {
 }
 #====== <======>
 
-class Bogart:
-  def __init__(self, x,v):
-    self.sender = x
-    self.message = v
-
 async def listen(listener, session: aiofbchat.Session):
   async for event in listener.listen():
     if isinstance(event, Connect):
-      print("Bot is connected")
+      print("\033[32m[CONNECTED] \033[0mBot is now connected")
+    if isinstance(event, Disconnect):
+      print("\033[31m[DISCONNECT] \033[0mBot disconnected")
     if isinstance(event, MessageEvent):
-      # If you're not the author, echo
       if event.author.id != session.user.id:
         haha = Bogart(event.author, event.message)
         if config['name'] == event.message.text.lower():
