@@ -1,9 +1,8 @@
 .venv/
-*.pyc
 __pycache__/
 
+*.pyc
+
 greeg.json
-
 test.py
-
 __response.py
