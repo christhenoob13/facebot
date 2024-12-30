@@ -29,5 +29,5 @@ def text_formatter(text):
     output = text
     for TYPE, TEXT in match:
       prince_text = font(TYPE, TEXT)
-      output = output.replac(f":{TYPE}[{TEXT}]", prince_text)
+      output = output.replace(f":{TYPE}[{TEXT}]", prince_text)
     return output
