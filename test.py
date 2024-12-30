@@ -1,3 +1,4 @@
+"""
 import psutil
 import platform
 import os
@@ -38,3 +39,4 @@ print(f"CPU Cores: {cpu_cores} physical cores, {logical_cores} logical cores")
 print(f"Ping Test: {get_ping()}")
 print(f"Operating System Platform: {os_platform}")
 print(f"CPU Architecture: {cpu_architecture}")
+"""
